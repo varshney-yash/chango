@@ -3,47 +3,43 @@
 {% load static %}
 
 {% block content %}
-    <div class="mt-12 py-12 px-8 grid grid-cols-5 gap-4 items-center border border-gray-300 rounded-xl">
-        <div class="col-span-2">
-            <img src="{% static 'images/logo.png' %}" alt="Chango Header Image">
-        </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col s12 m12 l10 offset-l1">
+                {% if not request.user.is_authenticated %}
+                    <div class="card-panel teal lighten-2 center-align">
+                        <p class="flow-text text-gray-800 mb-4">
+                            Login or sign up to create a room and start chatting!
+                        </p>
+                        <a href="/login/" class="waves-effect waves-light btn teal darken-3">Login</a>
+                        <a href="/signup/" class="waves-effect waves-light btn teal darken-3">Sign Up</a>
+                    </div>
+                {% endif %}
+                <div class="card-panel teal lighten-4">
+                    <div class="row">
+                        <div class="col s12 m4 mb-4">
+                            <div class="center-align">
+                                <h3 class="flow-text text-gray-800">Real-Time Updates</h3>
+                                <p class="mb-0 text-gray-600">Django-channels empower Chango to provide real-time updates, enhancing user experience.</p>
+                            </div>
+                        </div>
 
-        <div class="col-span-3">
-            <h1 class="mb-8 text-4xl font-semibold text-gray-800">Welcome to Chango</h1>
+                        <div class="col s12 m4 mb-4">
+                            <div class="center-align">
+                                <h3 class="flow-text text-gray-800">Scalable Architecture</h3>
+                                <p class="mb-0 text-gray-600">Chango's architecture ensures scalability and reliability as your user base grows.</p>
+                            </div>
+                        </div>
 
-            <h2 class="text-lg text-gray-500">Explore the world of Django and WebSockets with Chango. Connect and innovate with real-time communication.</h2>
-        </div>
-    </div>
-
-    <div class="mt-12 py-12 px-8 grid grid-cols-3 gap-8 items-center">
-        <div class="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 mb-4 text-rose-600 mx-auto">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-            </svg>  
-            
-            <h3 class="mb-4 text-xl font-semibold text-gray-800">Real-Time Updates</h3>
-
-            <p class="text-gray-600">Django and WebSockets empower Chango to provide real-time updates, enhancing user experience.</p> 
-        </div>
-
-        <div class="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 mb-4 text-rose-600 mx-auto">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>  
-            
-            <h3 class="mb-4 text-xl font-semibold text-gray-800">Scalable Architecture</h3>
-
-            <p class="text-gray-600">Chango's architecture is built on Django, ensuring scalability and reliability as your user base grows.</p> 
-        </div>
-
-        <div class="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-12 h-12 mb-4 text-rose-600 mx-auto">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v-6h-2v6zm0-8h2V7h-2v1"></path>
-            </svg>  
-            
-            <h3 class="mb-4 text-xl font-semibold text-gray-800">Secure Communication</h3>
-
-            <p class="text-gray-600">Chango prioritizes security, ensuring safe and encrypted communication.</p> 
+                        <div class="col s12 m4 mb-4">
+                            <div class="center-align">
+                                <h3 class="flow-text text-gray-800">Secure Communication</h3>
+                                <p class="mb-0 text-gray-600">Chango prioritizes security, ensuring safe and encrypted communication.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
