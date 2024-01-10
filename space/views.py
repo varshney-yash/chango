@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from .models import Space
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+@login_required
+def spaces(request):
+    spaces = Space.objects.all()
+    return render(request,'space/spaces.html',{'spaces':spaces})
