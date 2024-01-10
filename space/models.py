@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 class Space(models.Model):
     name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True,blank=True)
     description = models.CharField(max_length=1000, blank=True)
     created_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
