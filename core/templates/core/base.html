@@ -51,7 +51,7 @@
             <ul id="nav-desktop" class="right">
                 <li><a href="{% url 'core:about' %}">About</a></li>
                 {% if request.user.is_authenticated %}
-                <li><a href="/rooms/">Rooms</a></li>
+                <li><a href="/spaces/">Spaces</a></li>
                 <li><a href="/logout/" class="btn btn-teal">Log out</a></li>
                 {% else %}
                 {% endif %}
