@@ -47,8 +47,8 @@
 
     <nav class="container mx-auto">
         <div class="nav-wrapper">
-            <a href="{% url 'core:index' %}" class="brand-logo">Chango</a>
-            <ul id="nav-desktop" class="right hide-on-med-and-down">
+            <a href="{% url 'core:index' %}" class="brand-logo left">Chango</a>
+            <ul id="nav-desktop" class="right">
                 <li><a href="{% url 'core:about' %}">About</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a href="/rooms/">Rooms</a></li>
