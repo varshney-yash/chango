@@ -48,32 +48,16 @@
     <nav class="container mx-auto">
         <div class="nav-wrapper">
             <a href="{% url 'core:index' %}" class="brand-logo">Chango</a>
-            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-desktop" class="right hide-on-med-and-down">
-                <li><a href="{% url 'core:index' %}">Home</a></li>
                 <li><a href="{% url 'core:about' %}">About</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a href="/rooms/">Rooms</a></li>
                 <li><a href="/logout/" class="btn btn-teal">Log out</a></li>
                 {% else %}
-                <li><a href="/login/">Log in</a></li>
-                <li><a href="/signup/" class="btn btn-teal">Sign up</a></li>
                 {% endif %}
             </ul>
         </div>
     </nav>
-
-    <ul class="sidenav" id="mobile-nav">
-        <li><a href="{% url 'core:index' %}">Home</a></li>
-        <li><a href="{% url 'core:about' %}">About</a></li>
-        {% if request.user.is_authenticated %}
-        <li><a href="/rooms/">Rooms</a></li>
-        <li><a href="/logout/">Log out</a></li>
-        {% else %}
-        <li><a href="/login/">Log in</a></li>
-        <li><a href="/signup/">Sign up</a></li>
-        {% endif %}
-    </ul>
 
     <div class="container container-content">
         {% block content %}

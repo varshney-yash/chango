@@ -1,19 +1,40 @@
 {% extends 'core/base.html' %}
 
+{% block title %}About Us | {% endblock %}
+
 {% block content %}
-    <div class="mt-12 py-12 px-8">
-        <h1 class="mb-6 text-4xl font-extrabold text-gray-800 leading-tight">About Chango</h1>
-
-        <p class="text-lg text-gray-600 leading-relaxed">
-            Welcome to a cutting-edge platform powered by Django and WebSockets. Our mission is to revolutionize online experiences through real-time communication and scalable architecture.
-        </p>
-
-        <p class="mt-4 text-lg text-gray-600 leading-relaxed">
-            At Chango, we believe in the power of innovation. Our team of dedicated developers is committed to creating a seamless and secure environment for users to connect and interact in real-time.
-        </p>
-
-        <p class="mt-4 text-lg text-gray-600 leading-relaxed">
-            Whether you're a developer exploring new technologies or a user seeking an immersive online experience, Chango is your gateway to the future of web communication.
-        </p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col s12 m10 offset-m1 lg:p-20">
+            <h1 class="flow-text text-center">About Django Channels</h1>
+            <p class="flow-text text-justify teal-text">
+                Django Channels is a project that extends the capabilities of Django beyond HTTP to handle WebSockets, chat protocols, IoT protocols, and more.
+                It's built on a Python specification called ASGI (Asynchronous Server Gateway Interface) and provides the choice to handle other connections in either a synchronous or asynchronous style.
+            </p>
+            <br/>
+            <p class="flow-text text-justify amber-text">
+                Unlike the core Django framework, Channels isn’t underpinned by WSGI; instead, it’s built on a newer Python spec called ASGI which supports both synchronous and asynchronous code.
+                Channels extends Django’s capabilities, making it possible to handle not only HTTP but also WebSockets, MQTT (IoT), chatbots, radios, and other real-time applications.
+            </p>
+            <br/>
+            <p class="flow-text text-justify green-text">
+                Django Channels offers a certain degree of flexibility, allowing you to configure your new Django project in a way that makes the most sense for your use case.
+                It has multi-protocol support, enabling the use of WebSockets, HTTP (including HTTP/2, long-polling, and Server-Sent Events), and other options like chat and IoT protocols.
+            </p>
+            <br/>
+            <p class="flow-text text-justify deep-orange-text">
+                Channels supports a 1:1 messaging pattern, but it also allows you to broadcast events to multiple consumers via channels. Channels provides different routing classes which allow you to combine and stack consumers, similar to Django's URLs.
+            </p>
+            <br/>
+            <p class="flow-text text-justify blue-text">
+                Channels is comprised of several packages: channels, the Django integration layer; daphne, the HTTP and Websocket termination server; asgiref, the base ASGI library; and channels_redis, the Redis channel layer backend (optional).
+                Channels builds upon the native ASGI support in Django, giving you the choice to handle other connections in either a synchronous or asynchronous style.
+            </p>
+            <br/>
+            <p class="flow-text text-justify purple-text">
+                Channels is a powerful tool for building real-time applications and can be used to power a wide range of use cases, from chat applications to IoT protocols.
+            </p>
+        </div>
     </div>
+</div>
 {% endblock %}
