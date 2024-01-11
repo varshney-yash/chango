@@ -77,6 +77,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'chango.wsgi.application'
 ASGI_APPLICATION = 'chango.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND':'channels.layers.InMemoryChannelLayer'
+    }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

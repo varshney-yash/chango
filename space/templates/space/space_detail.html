@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ space.name }} | {% endblock %}
+
+{% block content %}
+<div class="container mx-auto">
+    <div class="card white lighten-2 rounded">
+        <div class="card-content">
+            <div class="chat-messages">
+                {% comment %} {% for m in messages %}
+                    <b>{{ m.user.username }}</b>: {{ m.content }}<br>
+                {% endfor %} {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-6">
+    <form method="post" action="." class="row">
+        <div class="input-field col s8">
+            <input type="text" name="content" placeholder="Your message..." id="chat-message-input">
+            <label for="chat-message-input">Your message...</label>
+        </div>
+
+        <div class="col s4">
+            <button class="btn waves-effect waves-light teal" type="submit" id="chat-message-submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

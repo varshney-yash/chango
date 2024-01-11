@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import spaces
+from .views import spaces, space
 
 urlpatterns = [
-    path('',spaces,name='spaces')
+    path('',spaces,name='spaces'),
+    path('<slug:slug>/',space, name='space')
 ]
