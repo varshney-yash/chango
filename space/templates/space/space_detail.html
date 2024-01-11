@@ -7,7 +7,9 @@
     <div class="card white lighten-2 rounded">
         <div class="card-content">
             <div class="chat-messages" id="chat-messages">
-
+                {% for message in messages %}
+                    <b> {{message.user.username}}:</b>{{message.content}}<br>
+                {% endfor %}
             </div>
         </div>
     </div>
