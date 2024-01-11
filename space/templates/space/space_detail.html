@@ -29,3 +29,17 @@
 </div>
 
 {% endblock %}
+
+{% block scripts %}
+{{ space.slug|json_script:"json-spacename" }}
+<script>
+    const spaceName = JSON.parse(document.getElementById('json-spacename').textContent);
+    const chatSocket = new WebSocket(
+        'ws://' + window.location.host + '/ws/' + spaceName + '/'
+    )
+    chatSocket.on.message = function(e) {
+        console.log('onmessage')
+    }
+    chatSocket.onclose('onclose')
+</script>
+{% endblock %}
