@@ -6,10 +6,8 @@
 <div class="container mx-auto">
     <div class="card white lighten-2 rounded">
         <div class="card-content">
-            <div class="chat-messages">
-                {% comment %} {% for m in messages %}
-                    <b>{{ m.user.username }}</b>: {{ m.content }}<br>
-                {% endfor %} {% endcomment %}
+            <div class="chat-messages" id="chat-messages">
+
             </div>
         </div>
     </div>
@@ -32,14 +30,40 @@
 
 {% block scripts %}
 {{ space.slug|json_script:"json-spacename" }}
+{{ request.user.username|json_script:"json-username" }}
+
 <script>
     const spaceName = JSON.parse(document.getElementById('json-spacename').textContent);
+    const userName = JSON.parse(document.getElementById('json-username').textContent);
+    
     const chatSocket = new WebSocket(
         'ws://' + window.location.host + '/ws/' + spaceName + '/'
     )
-    chatSocket.on.message = function(e) {
-        console.log('onmessage')
+    chatSocket.onmessage = function(e) {
+        console.log('sendmsg')
+        const data = JSON.parse(e.data);
+        if(data.message) {
+            document.querySelector('#chat-messages').innerHTML += ('<b>' + data.username + '</b>: ' + data.message + '<br>');
+            } else {
+            alert('empty message!')
+        }
     }
-    chatSocket.onclose('onclose')
+    chatSocket.onclose = function(e) {
+        console.log('closed')
+    }
+
+    document.querySelector('#chat-message-submit').onclick = function(e) {
+        e.preventDefault();
+        const msgInptDom = document.querySelector('#chat-message-input');
+        const msg = msgInptDom.value;
+        chatSocket.send(JSON.stringify({
+            'message':msg,
+            'username':userName,
+            'space':spaceName
+        }));
+        msgInptDom.value = '';
+        return false
+    };
+
 </script>
 {% endblock %}
