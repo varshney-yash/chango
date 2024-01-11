@@ -49,13 +49,17 @@ To run the Django development server, follow these steps:
     ```bash
     python manage.py runserver
     ```
+5. Run the migrations:
+    ```bash
+    python manage.py migrate
+    ```
 
 The development server should now be running at `http://127.0.0.1:8000/`.
 
 
 # Technologies Used
  - Django
- - PostgreSQL
+ - SQLite
  - Websockets 
 
 # Project requirements
