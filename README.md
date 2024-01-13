@@ -7,7 +7,7 @@ To clone the repository using SSH, follow these steps:
 1. Copy the SSH clone URL of your repository. You can find this on the repository's page on GitHub, and it looks like:
 
     ```bash
-    git@github.com:your-username/cnext-tickets-backend.git
+    git@github.com:your-username/chango.git
     ```
 
 2. Open a terminal window.
@@ -21,7 +21,7 @@ To clone the repository using SSH, follow these steps:
 4. Run the following command to clone the repository:
 
     ```bash
-    git clone git@github.com:your-username/cnext-tickets-backend.git
+    git clone git@github.com:your-username/chango.git
     ```
 
    Replace `your-username` with your GitHub username.
@@ -49,6 +49,7 @@ To run the Django development server, follow these steps:
     ```bash
     python manage.py runserver
     ```
+    
 5. Run the migrations:
     ```bash
     python manage.py migrate
